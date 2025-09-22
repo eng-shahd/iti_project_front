@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Uber - Professional Ride Service</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <!-- Enhanced Fixed navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm uber-navbar"
+    >
+      <div class="container">
+        <a class="navbar-brand uber-brand" href="index.html">
+          <i class="bi bi-car-front-fill me-2"></i>
+          <span>Uber</span>
+          <small class="badge badge-professional ml-2">Pro</small>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navMain"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">
+                <i class="bi bi-house-fill me-1"></i>Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="myrides.html">
+                <i class="bi bi-clock-history me-1"></i>My Rides
+              </a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="cars.html">
+                <i class="bi bi-car-front me-1"></i>Cars
+              </a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">
+                <i class="bi bi-person-circle me-1"></i>Profile
+              </a>
+            </li>
+          </ul>
+
+          <div id="authArea" class="ml-2"></div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <!-- <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center min-vh-100">
+          <div class="col-lg-6">
+            <div class="hero-content">
+              <h1 class="hero-title">
+                Go anywhere with <span class="text-primary">Uber</span>
+              </h1>
+              <p class="hero-subtitle">
+                Request a ride, hop in, and go. Choose from a range of ride
+                options.
+              </p>
+              <div class="hero-stats">
+                <div class="stat-item">
+                  <strong>1M+</strong>
+                  <span>Happy Customers</span>
+                </div>
+                <div class="stat-item">
+                  <strong>50K+</strong>
+                  <span>Professional Drivers</span>
+                </div>
+                <div class="stat-item">
+                  <strong>24/7</strong>
+                  <span>Available Service</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-image">
+              <img
+                src="https://images.pexels.com/photos/3856050/pexels-photo-3856050.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Professional Driver"
+                class="img-fluid rounded-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+    <!-- ============================================ -->
+    <div
+      id="carouselExampleSlidesOnly"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/1.jpg" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="img/2.jpg" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="img/3.jpg" class="d-block w-100" alt="..." />
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== -->
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="container py-5">
+        <!-- Quick Book Section -->
+        <section class="quick-book-section mb-5">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="booking-card">
+                <div class="card-header bg-transparent border-0 pb-0">
+                  <h3 class="card-title mb-1">Book Your Ride</h3>
+                  <p class="text-muted">
+                    Quick and easy ride booking in seconds
+                  </p>
+                </div>
+                <div class="card-body">
+                  <form id="rideForm">
+                    <div class="booking-form">
+                      <div class="form-group location-input">
+                        <label for="from"
+                          ><i class="bi bi-geo-alt-fill text-success me-2"></i
+                          >From</label
+                        >
+                        <input
+                          id="from"
+                          class="form-control form-control-lg"
+                          type="text"
+                          placeholder="Enter pickup location"
+                        />
+                      </div>
+                      <div class="location-swap">
+                        <i class="bi bi-arrow-down-up"></i>
+                      </div>
+                      <div class="form-group location-input">
+                        <label for="to"
+                          ><i class="bi bi-geo-alt-fill text-danger me-2"></i
+                          >To</label
+                        >
+                        <input
+                          id="to"
+                          class="form-control form-control-lg"
+                          type="text"
+                          placeholder="Enter destination"
+                        />
+                      </div>
+                      <button
+                        class="btn btn-primary btn-lg btn-book"
+                        type="submit"
+                      >
+                        <i class="bi bi-search me-2"></i>Find Rides
+                      </button>
+                    </div>
+                  </form>
+                  <div id="rideMsg" class="mt-3"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="info-card">
+                <div class="card-body text-center">
+                  <div class="info-icon">
+                    <i class="bi bi-shield-check"></i>
+                  </div>
+                  <h5>Why Choose Uber?</h5>
+                  <ul class="feature-list">
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i>Verified
+                      Professional Drivers
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i>Transparent Pricing
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i>Cashless & Secure
+                      Payment
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i>GPS Real-time
+                      Tracking
+                    </li>
+                    <li>
+                      <i class="bi bi-check-circle-fill"></i>24/7 Customer
+                      Support
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+          <div class="text-center mb-5">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">
+              Choose the perfect ride for every occasion
+            </p>
+          </div>
+          <div class="row">
+            <div class="col-md-4 mb-4">
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-car-front-fill"></i>
+                </div>
+                <h5>UberX</h5>
+                <p>Affordable rides for everyday use</p>
+                <span class="price-tag">From $5.99</span>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="service-card featured">
+                <div class="featured-badge">Popular</div>
+                <div class="service-icon">
+                  <i class="bi bi-car-front"></i>
+                </div>
+                <h5>UberXL</h5>
+                <p>Spacious rides for groups up to 6</p>
+                <span class="price-tag">From $8.99</span>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="service-card">
+                <div class="service-icon">
+                  <i class="bi bi-gem"></i>
+                </div>
+                <h5>Uber Black</h5>
+                <p>Premium rides with professional drivers</p>
+                <span class="price-tag">From $15.99</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="uber-footer bg-dark text-light">
+      <div class="container py-5">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <h5 class="footer-title">Contact Us</h5>
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="contactName"
+                  class="form-control"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="contactEmail"
+                  class="form-control"
+                  placeholder="Your email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  id="contactMessage"
+                  class="form-control"
+                  placeholder="Your message"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <button class="btn btn-primary" type="submit">
+                <i class="bi bi-send-fill me-2"></i>Send Message
+              </button>
+            </form>
+            <div id="contactMsg" class="mt-3"></div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <h5 class="footer-title">Quick Links</h5>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="signin.html">Sign Up</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="cars.html">Our Fleet</a></li>
+              <li><a href="profile.html">Profile</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <h5 class="footer-title">Get Started</h5>
+            <p>
+              Join thousands of satisfied customers who trust Uber for their
+              daily transportation needs.
+            </p>
+            <div class="cta-buttons">
+              <a href="signin.html" class="btn btn-outline-light me-2">
+                <i class="bi bi-person-plus-fill me-2"></i>Sign Up
+              </a>
+              <a href="login.html" class="btn btn-primary">
+                <i class="bi bi-box-arrow-in-right me-2"></i>Login
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p class="mb-0">
+              &copy; <span id="yearHome"></span> Uber Professional. All rights
+              reserved.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-right">
+            <div class="social-links">
+              <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-link"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Rides - Uber Professional</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm uber-navbar"
+    >
+      <div class="container">
+        <a class="navbar-brand uber-brand" href="index.html">
+          <i class="bi bi-car-front-fill me-2"></i>
+          <span>Uber</span>
+          <small class="badge badge-professional ml-2">Pro</small>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navMain"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                <i class="bi bi-house-fill me-1"></i>Home
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="myrides.html">
+                <i class="bi bi-clock-history me-1"></i>My Rides
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cars.html">
+                <i class="bi bi-car-front me-1"></i>Cars
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">
+                <i class="bi bi-person-circle me-1"></i>Profile
+              </a>
+            </li>
+          </ul>
+          <div id="authArea" class="ml-2"></div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page-content">
+      <div class="container py-5">
+        <!-- Header Section -->
+        <div class="text-center mb-5">
+          <h1 class="display-4 font-weight-bold text-dark mb-3">
+            My Ride History
+          </h1>
+          <p class="lead text-muted">
+            Track your journeys and manage your ride preferences
+          </p>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="ride-stats mb-5">
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <div class="stat-card-rides">
+                <div class="stat-icon-wrapper bg-primary">
+                  <i class="bi bi-car-front-fill"></i>
+                </div>
+                <div class="stat-content">
+                  <h4 id="totalRides">-</h4>
+                  <p>Total Rides</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="stat-card-rides">
+                <div class="stat-icon-wrapper bg-success">
+                  <i class="bi bi-currency-dollar"></i>
+                </div>
+                <div class="stat-content">
+                  <h4 id="totalSpent">-</h4>
+                  <p>Total Spent</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="stat-card-rides">
+                <div class="stat-icon-wrapper bg-info">
+                  <i class="bi bi-geo-alt-fill"></i>
+                </div>
+                <div class="stat-content">
+                  <h4 id="totalDistance">-</h4>
+                  <p>Total Distance</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-3">
+              <div class="stat-card-rides">
+                <div class="stat-icon-wrapper bg-warning">
+                  <i class="bi bi-star-fill"></i>
+                </div>
+                <div class="stat-content">
+                  <h4>4.8★</h4>
+                  <p>Your Rating</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Options -->
+        <div class="ride-filters mb-4">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <div class="btn-group filter-group" role="group">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary active"
+                  data-filter="all"
+                >
+                  All Rides
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  data-filter="completed"
+                >
+                  Completed
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  data-filter="pending"
+                >
+                  Pending
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  data-filter="cancelled"
+                >
+                  Cancelled
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-sm-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search by location..."
+                    id="rideSearch"
+                  />
+                </div>
+                <div class="col-sm-4">
+                  <select class="form-control" id="sortRides">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="price-low">Price: Low to High</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rides Container -->
+        <div id="ridesContainer">
+          <!-- Rides will be loaded here -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="text-center py-5" style="display: none">
+          <i
+            class="bi bi-car-front"
+            style="font-size: 4rem; color: #dee2e6"
+          ></i>
+          <h4 class="mt-3 text-muted">No rides found</h4>
+          <p class="text-muted">
+            Start your journey by booking your first ride!
+          </p>
+          <a href="index.html" class="btn btn-primary btn-lg mt-3">
+            <i class="bi bi-plus-circle me-2"></i>Book Your First Ride
+          </a>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="text-center mt-5">
+          <a href="index.html" class="btn btn-primary btn-lg me-3">
+            <i class="bi bi-plus-circle me-2"></i>Book Another Ride
+          </a>
+          <a href="profile.html" class="btn btn-outline-secondary btn-lg">
+            <i class="bi bi-person-circle me-2"></i>View Profile
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="uber-footer bg-dark text-light mt-5">
+      <div class="container py-4">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h6>Need help with a ride?</h6>
+            <p class="mb-0">
+              Contact our support team for assistance with any ride-related
+              issues.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-right">
+            <button class="btn btn-outline-light me-2">
+              <i class="bi bi-chat-dots-fill me-2"></i>Live Chat
+            </button>
+            <button class="btn btn-outline-light">
+              <i class="bi bi-telephone-fill me-2"></i>Call Support
+            </button>
+          </div>
+        </div>
+        <hr class="footer-divider" />
+        <div class="text-center">
+          <small
+            >&copy; <span id="yearRides"></span> Uber Professional. All rights
+            reserved.</small
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+
+    <script>
+      // Enhanced rides page functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        // Update stats after rides are loaded
+        setTimeout(updateRideStats, 1500);
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll(".filter-group .btn");
+        filterButtons.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            filterButtons.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+            filterRides(this.dataset.filter);
+          });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById("rideSearch");
+        if (searchInput) {
+          searchInput.addEventListener("input", function () {
+            searchRides(this.value);
+          });
+        }
+
+        // Sort functionality
+        const sortSelect = document.getElementById("sortRides");
+        if (sortSelect) {
+          sortSelect.addEventListener("change", function () {
+            sortRides(this.value);
+          });
+        }
+      });
+
+      function updateRideStats() {
+        const rideCards = document.querySelectorAll(".ride-card");
+        const totalRidesEl = document.getElementById("totalRides");
+        const totalSpentEl = document.getElementById("totalSpent");
+        const totalDistanceEl = document.getElementById("totalDistance");
+
+        let totalSpent = 0;
+        let totalDistance = 0;
+
+        rideCards.forEach((card) => {
+          const priceEl = card.querySelector(".price-tag");
+          if (priceEl) {
+            const price = parseFloat(priceEl.textContent.replace("$", "")) || 0;
+            totalSpent += price;
+          }
+          totalDistance += Math.floor(Math.random() * 20) + 5; // Demo distance
+        });
+
+        if (totalRidesEl) totalRidesEl.textContent = rideCards.length;
+        if (totalSpentEl) totalSpentEl.textContent = `$${totalSpent}`;
+        if (totalDistanceEl)
+          totalDistanceEl.textContent = `${totalDistance} km`;
+      }
+
+      function filterRides(filter) {
+        const rideCards = document.querySelectorAll(".ride-card");
+        let visibleCount = 0;
+
+        rideCards.forEach((card) => {
+          const status = card.querySelector(".badge").textContent.toLowerCase();
+          const shouldShow = filter === "all" || status.includes(filter);
+
+          card.style.display = shouldShow ? "block" : "none";
+          if (shouldShow) visibleCount++;
+        });
+
+        toggleEmptyState(visibleCount === 0);
+      }
+
+      function searchRides(query) {
+        const rideCards = document.querySelectorAll(".ride-card");
+        const searchTerm = query.toLowerCase();
+        let visibleCount = 0;
+
+        rideCards.forEach((card) => {
+          const locations = card.querySelectorAll(".route-item strong");
+          const locationText = Array.from(locations)
+            .map((el) => el.textContent.toLowerCase())
+            .join(" ");
+          const shouldShow = locationText.includes(searchTerm);
+
+          card.style.display = shouldShow ? "block" : "none";
+          if (shouldShow) visibleCount++;
+        });
+
+        toggleEmptyState(visibleCount === 0);
+      }
+
+      function sortRides(sortBy) {
+        const container = document.getElementById("ridesContainer");
+        const rideCards = Array.from(container.querySelectorAll(".ride-card"));
+
+        rideCards.sort((a, b) => {
+          switch (sortBy) {
+            case "newest":
+              return new Date(b.dataset.date) - new Date(a.dataset.date);
+            case "oldest":
+              return new Date(a.dataset.date) - new Date(b.dataset.date);
+            case "price-high":
+              return (
+                parseFloat(
+                  b.querySelector(".price-tag").textContent.replace("$", "")
+                ) -
+                parseFloat(
+                  a.querySelector(".price-tag").textContent.replace("$", "")
+                )
+              );
+            case "price-low":
+              return (
+                parseFloat(
+                  a.querySelector(".price-tag").textContent.replace("$", "")
+                ) -
+                parseFloat(
+                  b.querySelector(".price-tag").textContent.replace("$", "")
+                )
+              );
+            default:
+              return 0;
+          }
+        });
+
+        rideCards.forEach((card) => container.appendChild(card));
+      }
+
+      function toggleEmptyState(show) {
+        const emptyState = document.getElementById("emptyState");
+        const ridesContainer = document.getElementById("ridesContainer");
+
+        if (emptyState) {
+          emptyState.style.display = show ? "block" : "none";
+        }
+        if (ridesContainer && show) {
+          ridesContainer.style.display = "none";
+        } else if (ridesContainer) {
+          ridesContainer.style.display = "block";
+        }
+      }
+    </script>
+  </body>
+</html>

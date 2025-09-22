@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Our Fleet - Uber Professional</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm uber-navbar"
+    >
+      <div class="container">
+        <a class="navbar-brand uber-brand" href="index.html">
+          <i class="bi bi-car-front-fill me-2"></i>
+          <span>Uber</span>
+          <small class="badge badge-professional ml-2">Pro</small>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navMain"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                <i class="bi bi-house-fill me-1"></i>Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="myrides.html">
+                <i class="bi bi-clock-history me-1"></i>My Rides
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="cars.html">
+                <i class="bi bi-car-front me-1"></i>Cars
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">
+                <i class="bi bi-person-circle me-1"></i>Profile
+              </a>
+            </li>
+          </ul>
+          <div id="authArea" class="ml-2"></div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page-content">
+      <div class="container py-5">
+        <!-- Header Section -->
+        <div class="text-center mb-5">
+          <h1 class="display-4 font-weight-bold text-dark mb-3">
+            Our Professional Fleet
+          </h1>
+          <p class="lead text-muted mb-4">
+            Choose from our wide range of carefully maintained and
+            professionally driven vehicles
+          </p>
+          <div class="fleet-stats">
+            <div class="row text-center">
+              <div class="col-md-3">
+                <div class="stat-card">
+                  <i class="bi bi-car-front-fill stat-icon"></i>
+                  <h4>500+</h4>
+                  <p>Vehicles</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="stat-card">
+                  <i class="bi bi-shield-check stat-icon"></i>
+                  <h4>100%</h4>
+                  <p>Verified</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="stat-card">
+                  <i class="bi bi-people-fill stat-icon"></i>
+                  <h4>24/7</h4>
+                  <p>Available</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="stat-card">
+                  <i class="bi bi-star-fill stat-icon"></i>
+                  <h4>4.9★</h4>
+                  <p>Average Rating</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section mb-4">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="filter-buttons">
+                <button
+                  class="btn btn-outline-primary filter-btn active"
+                  data-filter="all"
+                >
+                  <i class="bi bi-grid-3x3-gap me-2"></i>All Vehicles
+                </button>
+                <button
+                  class="btn btn-outline-primary filter-btn"
+                  data-filter="sedan"
+                >
+                  <i class="bi bi-car-front me-2"></i>Sedan
+                </button>
+                <button
+                  class="btn btn-outline-primary filter-btn"
+                  data-filter="suv"
+                >
+                  <i class="bi bi-truck me-2"></i>SUV
+                </button>
+                <button
+                  class="btn btn-outline-primary filter-btn"
+                  data-filter="luxury"
+                >
+                  <i class="bi bi-gem me-2"></i>Luxury
+                </button>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="search-box">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"
+                      ><i class="bi bi-search"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search vehicles..."
+                    id="vehicleSearch"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cars Grid -->
+        <div id="carsContainer" class="row">
+          <!-- Cars will be loaded here -->
+        </div>
+
+        <!-- Back to Home -->
+        <div class="text-center mt-5">
+          <a href="index.html" class="btn btn-primary btn-lg">
+            <i class="bi bi-arrow-left me-2"></i>Back to Home
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Enhanced Footer -->
+    <footer class="uber-footer bg-dark text-light mt-5">
+      <div class="container py-4">
+        <div class="row">
+          <div class="col-md-6">
+            <h6>Need help choosing?</h6>
+            <p class="mb-0">
+              Our customer service team is available 24/7 to help you select the
+              perfect vehicle for your needs.
+            </p>
+          </div>
+          <div class="col-md-6 text-md-right">
+            <button class="btn btn-outline-light">
+              <i class="bi bi-telephone-fill me-2"></i>Contact Support
+            </button>
+          </div>
+        </div>
+        <hr class="footer-divider" />
+        <div class="text-center">
+          <small
+            >&copy; <span id="yearCars"></span> Uber Professional. All rights
+            reserved.</small
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+
+    <script>
+      // Additional cars page functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        // Filter functionality
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const searchInput = document.getElementById("vehicleSearch");
+
+        filterButtons.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            filterButtons.forEach((b) => b.classList.remove("active"));
+            this.classList.add("active");
+
+            const filterType = this.dataset.filter;
+            filterCars(filterType);
+          });
+        });
+
+        if (searchInput) {
+          searchInput.addEventListener("input", function () {
+            searchCars(this.value);
+          });
+        }
+      });
+
+      function filterCars(type) {
+        const cards = document.querySelectorAll(".car-card");
+        cards.forEach((card) => {
+          const cardType = card.dataset.type;
+          if (type === "all" || cardType === type) {
+            card.closest(".col-lg-4").style.display = "block";
+          } else {
+            card.closest(".col-lg-4").style.display = "none";
+          }
+        });
+      }
+
+      function searchCars(query) {
+        const cards = document.querySelectorAll(".car-card");
+        const searchTerm = query.toLowerCase();
+
+        cards.forEach((card) => {
+          const title = card
+            .querySelector(".card-title")
+            .textContent.toLowerCase();
+          const type = card.dataset.type.toLowerCase();
+
+          if (title.includes(searchTerm) || type.includes(searchTerm)) {
+            card.closest(".col-lg-4").style.display = "block";
+          } else {
+            card.closest(".col-lg-4").style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

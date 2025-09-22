@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sign Up - Uber Professional</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+  <body class="auth-page">
+    <!-- Enhanced Fixed navbar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm uber-navbar"
+    >
+      <div class="container">
+        <a class="navbar-brand uber-brand" href="index.html">
+          <i class="bi bi-car-front-fill me-2"></i>
+          <span>Uber</span>
+          <small class="badge badge-professional ml-2">Pro</small>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navMain"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                <i class="bi bi-house-fill me-1"></i>Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="myrides.html">
+                <i class="bi bi-clock-history me-1"></i>My Rides
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cars.html">
+                <i class="bi bi-car-front me-1"></i>Cars
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">
+                <i class="bi bi-person-circle me-1"></i>Profile
+              </a>
+            </li>
+          </ul>
+          <div id="authArea" class="ml-2">
+            <a class="btn btn-outline-primary btn-sm me-2" href="login.html"
+              >Login</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="auth-main">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
+            <div class="auth-container">
+              <div class="row no-gutters">
+                <!-- Left Side - Form -->
+                <div class="col-md-6">
+                  <div class="auth-form-container">
+                    <div class="auth-header">
+                      <h2 class="auth-title">Create Account</h2>
+                      <p class="auth-subtitle">
+                        Join the Uber Professional community
+                      </p>
+                    </div>
+
+                    <form id="signinPageForm" novalidate>
+                      <!-- User Type Selection -->
+                      <div class="form-group">
+                        <label class="form-label">I want to join as:</label>
+                        <div class="user-type-selection">
+                          <div class="user-type-card" data-type="user">
+                            <input
+                              type="radio"
+                              name="userType"
+                              id="typeUser"
+                              value="user"
+                              checked
+                            />
+                            <label for="typeUser">
+                              <div class="type-icon">
+                                <i class="bi bi-person-fill"></i>
+                              </div>
+                              <h6>Passenger</h6>
+                              <small>Book rides and travel comfortably</small>
+                            </label>
+                          </div>
+                          <div class="user-type-card" data-type="driver">
+                            <input
+                              type="radio"
+                              name="userType"
+                              id="typeDriver"
+                              value="driver"
+                            />
+                            <label for="typeDriver">
+                              <div class="type-icon">
+                                <i class="bi bi-car-front-fill"></i>
+                              </div>
+                              <h6>Driver</h6>
+                              <small>Drive and earn with Uber</small>
+                            </label>
+                          </div>
+                          <div class="user-type-card" data-type="admin">
+                            <input
+                              type="radio"
+                              name="userType"
+                              id="typeAdmin"
+                              value="admin"
+                            />
+                            <label for="typeAdmin">
+                              <div class="type-icon">
+                                <i class="bi bi-shield-check-fill"></i>
+                              </div>
+                              <h6>Admin</h6>
+                              <small>Manage system operations</small>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Personal Info -->
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input
+                              id="firstName"
+                              type="text"
+                              class="form-control"
+                              placeholder="Enter first name"
+                              required
+                            />
+                            <div class="invalid-feedback">
+                              First name is required
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input
+                              id="lastName"
+                              type="text"
+                              class="form-control"
+                              placeholder="Enter last name"
+                              required
+                            />
+                            <div class="invalid-feedback">
+                              Last name is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="emailPage">Email Address</label>
+                        <input
+                          id="emailPage"
+                          type="email"
+                          class="form-control"
+                          placeholder="Enter your email"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Please enter a valid email address
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input
+                          id="phone"
+                          type="tel"
+                          class="form-control"
+                          placeholder="+20 XXX XXX XXXX"
+                          required
+                        />
+                        <div class="invalid-feedback">
+                          Phone number is required
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="passwordPage">Password</label>
+                        <div class="password-input">
+                          <input
+                            id="passwordPage"
+                            type="password"
+                            class="form-control"
+                            placeholder="Create password"
+                            required
+                            minlength="6"
+                          />
+                          <button
+                            type="button"
+                            class="password-toggle"
+                            onclick="togglePassword('passwordPage')"
+                          >
+                            <i class="bi bi-eye"></i>
+                          </button>
+                        </div>
+                        <div class="invalid-feedback">
+                          Password must be at least 6 characters
+                        </div>
+                        <small class="form-text text-muted"
+                          >Password must contain at least 6 characters</small
+                        >
+                      </div>
+
+                      <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="password-input">
+                          <input
+                            id="confirmPassword"
+                            type="password"
+                            class="form-control"
+                            placeholder="Confirm password"
+                            required
+                            minlength="6"
+                          />
+                          <button
+                            type="button"
+                            class="password-toggle"
+                            onclick="togglePassword('confirmPassword')"
+                          >
+                            <i class="bi bi-eye"></i>
+                          </button>
+                        </div>
+                        <div class="invalid-feedback">Passwords must match</div>
+                      </div>
+
+                      <!-- Terms and Conditions -->
+                      <div class="form-group form-check">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          id="agreeTerms"
+                          required
+                        />
+                        <label class="form-check-label" for="agreeTerms">
+                          I agree to the
+                          <a href="#" class="text-primary">Terms of Service</a>
+                          and
+                          <a href="#" class="text-primary">Privacy Policy</a>
+                        </label>
+                        <div class="invalid-feedback">
+                          You must agree to the terms
+                        </div>
+                      </div>
+
+                      <div
+                        id="signinPageError"
+                        class="alert alert-danger"
+                        style="display: none"
+                      ></div>
+
+                      <button
+                        class="btn btn-primary btn-lg btn-block auth-btn"
+                        type="submit"
+                      >
+                        <i class="bi bi-person-plus-fill me-2"></i>Create
+                        Account
+                      </button>
+                    </form>
+
+                    <div class="auth-footer">
+                      <p class="text-center mb-0">
+                        Already have an account?
+                        <a
+                          href="login.html"
+                          class="text-primary font-weight-bold"
+                          >Sign In</a
+                        >
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Right Side - Info -->
+                <div class="col-md-6">
+                  <div class="auth-info-container">
+                    <div class="auth-info-content">
+                      <h3>Join Uber Professional</h3>
+                      <ul class="auth-benefits">
+                        <li>
+                          <i class="bi bi-check-circle-fill"></i>
+                          <span>Verified and trusted platform</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check-circle-fill"></i>
+                          <span>24/7 customer support</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check-circle-fill"></i>
+                          <span>Secure payment processing</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check-circle-fill"></i>
+                          <span>Real-time ride tracking</span>
+                        </li>
+                        <li>
+                          <i class="bi bi-check-circle-fill"></i>
+                          <span>Professional driver network</span>
+                        </li>
+                      </ul>
+
+                      <div class="auth-stats">
+                        <div class="stat">
+                          <strong>1M+</strong>
+                          <span>Active Users</span>
+                        </div>
+                        <div class="stat">
+                          <strong>50K+</strong>
+                          <span>Drivers</span>
+                        </div>
+                        <div class="stat">
+                          <strong>4.8★</strong>
+                          <span>Rating</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>
